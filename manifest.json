@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"name": "Progress Pie",
+	"description": "Pie showing the progress of a particular event.",
+	"version": "0.1",
+	"app": {
+		"background": {
+			"scripts" : ["main.js"]
+		}
+	},
+	"icons": {"128": "assets/icon.png"}
+}

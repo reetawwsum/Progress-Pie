@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" >
+	<script src="lib/jquery.js" ></script>
+	<script src="lib/jcanvas.min.js" ></script>
+	<script src="js/controller.js" ></script>
+	</head>
+	<body>
+		<header>
+			<img id="bin" src="assets/bin.png" >
+			<img id="settings" src="assets/settings.png">
+			<div id="heading">New</div>
+		</header>
+		<canvas height="300" width="300" >
+		</canvas>
+		<section>
+			<div>
+				<span>Title</span><br>
+				<input type="text" id="title" maxlength="15" style="padding: 1px 1px 2px 2px; width: 140px"><br><br>
+				<span>From</span><br>
+				<input type="date" id="from_date" >
+				<input type="time" id="from_time" value="00:00"><br><br>
+				<span>To</span><br>
+				<input type="date" id="to_date" >
+				<input type="time" id="to_time" value="00:00"><br><br>
+				<a href="#" class="myButton">Done</a>
+			</div>
+		</section>
+		<footer>
+			<span id="completed">
+			Completed : <span id="completedPercent" ></span>
+			</span>
+			<span id="remaining">
+			Remaining : <span id="remainingPercent" ></span>
+			</span>
+		</footer>	
+	</body>
+</html>
