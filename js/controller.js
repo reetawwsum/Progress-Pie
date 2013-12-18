@@ -113,23 +113,20 @@ $(document).ready(function(){
 
 //AngularJs Controller
 function MainController($scope){
-		var values = ["title", "from_date", "from_time", "to_date", "to_time"];
-		var i;
+	$scope.data = [$scope.title, $scope.from_date, $scope.from_time, $scope.to_date, $scope.to_time];
 
-		for (i = 0; i < 4; i++){
-			chrome.storage.sync.get(values[0], function(value){
-				$scope.$apply(function() {
-					$scope.load(value);
-				});
-			});
-		}
-	
-		$scope.load = function(value){
-			if (value && value.values[i])
-				$scope.values[i] = value.values[i];
-		}
+	chrome.storage.sync.get('data', function(value) {
+		$scope.$apply(function() {
+			$scope.load(value);
+		});
+	});
 
-		$scope.save = function(){
-			chrome.storage.sync.set({'title': $scope.title});
-		}
+	$scope.load = function(value) {
+		if (value && value.data)
+			$scope.title = value.data[0];
+	}
+
+	$scope.save = function() {
+		chrome.storage.sync.set({'data': $scope.data});
+	};
 }
