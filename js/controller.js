@@ -1,3 +1,4 @@
+//JQuery Controller
 $(document).ready(function(){
 	var pieInterval;
 	var value;
@@ -109,3 +110,26 @@ $(document).ready(function(){
 		$("section").show();
 	});
 });
+
+//AngularJs Controller
+function MainController($scope){
+		var values = ["title", "from_date", "from_time", "to_date", "to_time"];
+		var i;
+
+		for (i = 0; i < 4; i++){
+			chrome.storage.sync.get(values[0], function(value){
+				$scope.$apply(function() {
+					$scope.load(value);
+				});
+			});
+		}
+	
+		$scope.load = function(value){
+			if (value && value.values[i])
+				$scope.values[i] = value.values[i];
+		}
+
+		$scope.save = function(){
+			chrome.storage.sync.set({'title': $scope.title});
+		}
+}
