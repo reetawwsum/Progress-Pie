@@ -4,12 +4,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" >
 	<script src="lib/jquery.js" ></script>
 	<script src="lib/jcanvas.min.js" ></script>
-	<script src="lib/angular.min.js" ></script>
 	<script src="js/controller.js" ></script>
 	</head>
 	<body ng-controller="MainController" >
 		<header>
-			<img id="bin" src="assets/bin.png" ng-click="save()">
+			<img id="bin" src="assets/bin.png">
 			<img id="settings" src="assets/settings.png">
 			<div id="heading">New</div>
 		</header>
@@ -18,14 +17,14 @@
 		<section>
 			<div>
 				<span>Title</span><br>
-				<input type="text" id="title" maxlength="15" style="padding: 1px 1px 2px 2px; width: 140px" ng-model="title"><br><br>
+				<input type="text" id="title" maxlength="15" style="padding: 1px 1px 2px 2px; width: 140px"><br><br>
 				<span>From</span><br>
-				<input type="date" id="from_date" ng-model="from_date" >
-				<input type="time" id="from_time" value="00:00" ng-model="from_time"><br><br>
+				<input type="date" id="from_date">
+				<input type="time" id="from_time" value="00:00"><br><br>
 				<span>To</span><br>
-				<input type="date" id="to_date" ng-model="to_date" >
-				<input type="time" id="to_time" value="00:00" ng-model="to_time" ><br><br>
-				<a href="#" class="myButton" ng-click="save()" >Done</a>
+				<input type="date" id="to_date">
+				<input type="time" id="to_time" value="00:00"><br><br>
+				<a href="#" class="myButton" >Done</a>
 			</div>
 		</section>
 		<footer>

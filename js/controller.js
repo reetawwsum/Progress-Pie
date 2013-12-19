@@ -2,8 +2,27 @@
 $(document).ready(function(){
 	var pieInterval;
 	var value;
+	var newHeading;
+	var fromDate;
+	var fromTime;
+	var toDate;
+	var toTime;
 
 	$("canvas").hide();
+
+	//Fetching stored data
+	chrome.storage.sync.get('data', function(v){
+		if (v && v.data){
+			var data = v.data;
+			if (data[0] != "")
+				$("#heading").text(data[0]);
+			$("#title").val(data[0]);
+			$("#from_date").val(data[1]);
+			$("#from_time").val(data[2]);
+			$("#to_date").val(data[3]);
+			$("#to_time").val(data[4]);
+		}
+	});
 
 	//Transition between Pie Chart and Input Section
 	$("canvas").dblclick(function(){
@@ -14,11 +33,7 @@ $(document).ready(function(){
 
 	//Done Button
 	$(".myButton").click(function(){
-		var newHeading = $("#title").val();
-		var fromDate = $("#from_date").val();
-		var toDate = $("#to_date").val();
-		var fromTime = $("#from_time").val();
-		var toTime = $("#to_time").val();
+		save();
 		if (newHeading != "" && newHeading != " " && fromDate != "" && toDate != "" && fromTime != "" && toTime != ""){
 			var d1 = fromDate.split("-");
 			var t1 = fromTime.split(":");
@@ -106,36 +121,19 @@ $(document).ready(function(){
 		$("#to_time").val("00:00");
 		$("#completedPercent").text("");
 		$("#remainingPercent").text("");
+		save();
 		$("canvas").hide();
 		$("section").show();
 	});
+
+	//Saving
+	var save = function(){
+		newHeading = $("#title").val();
+		fromDate = $("#from_date").val();
+		fromTime = $("#from_time").val();
+		toDate = $("#to_date").val();
+		toTime = $("#to_time").val();
+		var data = [newHeading, fromDate, fromTime, toDate, toTime];
+		chrome.storage.sync.set({'data': data});
+	}
 });
-
-//AngularJs Controller
-function MainController($scope){
-	chrome.storage.sync.get('data', function(value){
-		$scope.$apply(function(){
-			$scope.load(value);
-		});
-	});
-
-	$scope.load = function(value){
-		if (value && value.data){
-			$scope.data = value.data;
-			$scope.title = $scope.data[0];
-			$scope.from_date = $scope.data[1];
-			$scope.from_time = $scope.data[2];
-			$scope.to_date = $scope.data[3];
-			$scope.to_time = $scope.data[4];
-		} else {
-			$scope.title = "";
-			$scope.from_time = "00:00";
-			$scope.to_time = "00:00";
-		}
-	}
-
-	$scope.save = function(){
-		$scope.data = [$scope.title, $scope.from_date, $scope.from_time, $scope.to_date, $scope.to_time];
-		chrome.storage.sync.set({'data': $scope.data});
-	}
-}
