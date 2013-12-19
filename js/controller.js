@@ -14,13 +14,14 @@ $(document).ready(function(){
 	chrome.storage.sync.get('data', function(v){
 		if (v && v.data){
 			var data = v.data;
-			if (data[0] != "")
+			if (data[0] != "" && data[1] != "" && data[2] != "" && data[3] != "" && data[4] != "")
 				$("#heading").text(data[0]);
 			$("#title").val(data[0]);
 			$("#from_date").val(data[1]);
 			$("#from_time").val(data[2]);
 			$("#to_date").val(data[3]);
 			$("#to_time").val(data[4]);
+			$(".myButton").click();
 		}
 	});
 
@@ -42,7 +43,7 @@ $(document).ready(function(){
 			var first = new Date(parseInt(d1[0]), parseInt(d1[1])-1, parseInt(d1[2]), parseInt(t1[0]), parseInt(t1[1]));
 			var second = new Date(parseInt(d2[0]), parseInt(d2[1])-1, parseInt(d2[2]), parseInt(t2[0]), parseInt(t2[1]));
 			if (first.getTime() > second.getTime())
-				return 0;
+				return;
 			pieInterval = setInterval(function(){
 				current = new Date();
 				if (current.getTime() < first.getTime())
@@ -133,6 +134,7 @@ $(document).ready(function(){
 		fromTime = $("#from_time").val();
 		toDate = $("#to_date").val();
 		toTime = $("#to_time").val();
+		completedPercent
 		var data = [newHeading, fromDate, fromTime, toDate, toTime];
 		chrome.storage.sync.set({'data': data});
 	}
