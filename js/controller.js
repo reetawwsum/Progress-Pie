@@ -138,4 +138,18 @@ $(document).ready(function(){
 		var data = [newHeading, fromDate, fromTime, toDate, toTime];
 		chrome.storage.sync.set({'data': data});
 	}
+
+	//Now button
+	$(".now").click(function(){
+		var d = new Date();
+		date = d.getDate();
+		month = d.getMonth()+1;
+		year = d.getFullYear();
+		hour = d.getHours();
+		minutes = d.getMinutes();
+		var todayDate = year + "-" + month + "-" + date;
+		var currentTime = hour + ":" + minutes;
+		$("#from_date").val(todayDate);
+		$("#from_time").val(currentTime);
+	});
 });
