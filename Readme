@@ -1,4 +1,4 @@
-#Progress Pie (v0.2)
+#Progress Pie (v0.3)
 
 Progress Pie is a chrome app which shows the progress of a particular event in a form of pie chart.
 
@@ -10,6 +10,7 @@ Progress Pie is a chrome app which shows the progress of a particular event in a
 #How to use
 1) Open the app from the Chrome Launcher or the Chrome browser.
 2) Enter title, Intial date-time and final date-time and click "Done".
+3) Click on "Now" to set current date and time as Initial date and time.
 3) Red Part shows the completed span whereas the Green color depicts the remaining.
 4) Double click the Pie Chart to alter the initials for a particular event.
 5) To delete the event - Click on Trash Icon.
