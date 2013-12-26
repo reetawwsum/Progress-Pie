@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Progress Pie",
 	"description": "Pie showing the progress of a particular event.",
-	"version": "0.2",
+	"version": "0.3",
 	"app": {
 		"background": {
 			"scripts" : ["main.js"]
