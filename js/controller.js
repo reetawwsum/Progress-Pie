@@ -134,7 +134,6 @@ $(document).ready(function(){
 		fromTime = $("#from_time").val();
 		toDate = $("#to_date").val();
 		toTime = $("#to_time").val();
-		completedPercent
 		var data = [newHeading, fromDate, fromTime, toDate, toTime];
 		chrome.storage.sync.set({'data': data});
 	}
@@ -147,6 +146,10 @@ $(document).ready(function(){
 		year = d.getFullYear();
 		hour = d.getHours();
 		minutes = d.getMinutes();
+		date = date < 10 ? "0" + date : date;
+		month = month < 10 ? "0" + month : month;
+		hour = hour < 10 ? "0" + hour : hour;
+		minutes = minutes < 10 ? "0" + minutes : minutes;  
 		var todayDate = year + "-" + month + "-" + date;
 		var currentTime = hour + ":" + minutes;
 		$("#from_date").val(todayDate);
