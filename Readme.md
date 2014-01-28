@@ -17,4 +17,4 @@ Progress Pie is a chrome app which shows the progress of a particular event in a
 
 Note: Setting Icon currently deactive.
 
-#Coded by Reet Awwsum
+-Coded by Reet Awwsum
