@@ -8,6 +8,16 @@ $(document).ready(function(){
 	var toDate;
 	var toTime;
 
+	var todayDate;
+	var currentTime;
+	var incDate;
+	var incTime;
+	var year;
+	var	hour;
+	var	minutes;
+	var	date;
+	var	month;
+
 	$("canvas").hide();
 
 	//Fetching stored data
@@ -139,7 +149,7 @@ $(document).ready(function(){
 	}
 
 	//Now button
-	$(".now").click(function(){
+	$(".DTbutton").click(function(){
 		var d = new Date();
 		date = d.getDate();
 		month = d.getMonth()+1;
@@ -150,9 +160,58 @@ $(document).ready(function(){
 		month = month < 10 ? "0" + month : month;
 		hour = hour < 10 ? "0" + hour : hour;
 		minutes = minutes < 10 ? "0" + minutes : minutes;  
-		var todayDate = year + "-" + month + "-" + date;
-		var currentTime = hour + ":" + minutes;
+		todayDate = year + "-" + month + "-" + date;
+		currentTime = hour + ":" + minutes;
 		$("#from_date").val(todayDate);
 		$("#from_time").val(currentTime);
 	});
+
+
+	//not completed
+	$("#15min").click(function(){
+		if(hour!=23){
+			if(minutes<45){
+				minutes+=15;
+			}
+		}
+		incDate = year + "-" + month + "-" + date;
+		incTime = hour + ":" + minutes;
+		$("#to_date").val(incDate);
+		$("#to_time").val(incTime);
+	});
+
+	$("#30min").click(function(){
+		if(hour!=23){
+			if(minutes<30){
+				minutes+=30;
+			}
+		}
+		incDate = year + "-" + month + "-" + date;
+		incTime = hour + ":" + minutes;
+		$("#to_date").val(incDate);
+		$("#to_time").val(incTime);
+	});
+
+	$("#1hr").click(function(){
+		if(hour!=23){
+			hour++;
+			hour = hour < 10 ? "0" + hour : hour;
+		}
+		incDate = year + "-" + month + "-" + date;
+		incTime = hour + ":" + minutes;
+		$("#to_date").val(incDate);
+		$("#to_time").val(incTime);
+	});
 });
+
+
+
+
+
+
+
+
+
+
+
+

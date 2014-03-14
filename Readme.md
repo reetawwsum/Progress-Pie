@@ -2,12 +2,12 @@
 
 Progress Pie is a chrome app which shows the progress of a particular event in a form of pie chart.
 
-#How to install
+##How to install
 1) Open Chrome Settings.
 2) Under Extensions section, Click on "Load Unpacked Extensions".(Make sure Developer Mode is turned on)
 3) Navigate to the forked version of the app folder and click "Open".
 
-#How to use
+##How to use
 1) Open the app from the Chrome Launcher or the Chrome browser.
 2) Enter title, Intial date-time and final date-time and click "Done".
 3) Click on "Now" to set current date and time as Initial date and time.
@@ -17,4 +17,4 @@ Progress Pie is a chrome app which shows the progress of a particular event in a
 
 Note: Setting Icon currently deactive.
 
-#Coded by Reet Awwsum
+-Coded by Reet Awwsum
